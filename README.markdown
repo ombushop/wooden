@@ -1,6 +1,6 @@
-# Theme Minimost
+# Theme Norwegian Wood
 
-Todos los templates del theme Minimost sobre la plataforma Ombu Shop.
+Todos los templates del theme Norwegian Wood sobre la plataforma Ombu Shop.
 
 Estos templates utilizan la [API para diseñadores](http://www.ombushop.com/liquid-api/index.html)
 
@@ -8,7 +8,7 @@ Estos templates utilizan la [API para diseñadores](http://www.ombushop.com/liqu
 
 Para poder utilizar estos templates es necesario tener una tienda virtual sobre Ombu Shop.
 
-Para utilizar este template: 
+Para utilizar este template:
 
   1. Ir a http://www.ombushop.com/admin
   2. Diseño > Configuración

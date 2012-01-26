@@ -1,0 +1,135 @@
+<div id="content">
+  <h1>{{ product.name }}</h1>
+
+  <div id="product-images">
+  
+    <div id="main-image">
+      {% if product.featured_image %}
+        <!-- <img src="{{ product.featured_image | image_size: 'vertical_small' }}" title="{{ product.featured_image.alt | capitalize }}"></img> -->
+
+        <div id="wrap" style="top:0px;z-index:9999;position:relative;">
+          <a href="{{ product.featured_image | image_size: 'original' }}" class="cloud-zoom" id="zoom1" rel="adjustX:30, adjustY:0, softFocus:false, position:'right', showTitle:false" style="position: relative; display: block; ">
+            <img src="{{ product.featured_image.src }}" alt="" align="left" title="{{ product.featured_image.alt | capitalize }}" style="display: block; " />
+          </a>
+          <div class="mousetrap" style="background-image:url(&quot;.&quot;);z-index:999;position:absolute;left:0px;top:0px;">
+          </div>
+        </div>
+
+      {% else %}
+        <img alt="No image" src="/images/noimage/product.jpg"></img>
+      {% endif %}
+    </div>
+
+    <div id="thumbnails">
+      <!-- no need for thumbnails unless there is more then one image -->
+      {% if product.images.size > 1 %}
+        <ul id="product-thumbnails" class="thumbnails">
+          {% for image in product.images %}
+            <li {% if forloop.first %} class="selected" {% endif %}>
+              <a href="{{ image.src }}">
+                <img src="{{ image | image_size: 'mini' }}" />
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if product.has_variants? %}
+        {% if product.has_variant_images? %}
+          <h4 id="variant-images">
+            Fotos para:
+            <span>{{ selected_variant.options_text }}</span>
+          </h4>
+          <ul id="variant-thumbnails" class="thumbnails">
+            {% for variant in product.variants %}
+              {% if variant.available? %}
+                {% for image in variant.images %}
+                  <li>
+                      <a href="{{ image.src }}">
+                        <img src="{{ image | image_size: 'mini' }}" />
+                      </a>
+                  </li>
+                {% endfor %}
+              {% endif %}    
+            {% endfor %}
+      
+        {% endif %}
+    
+      {% endif %}
+    </div>
+  </div>
+
+  <div id="product-description">
+    {{ product.formatted_description }}
+    &nbsp;
+  </div>
+
+  <div id="cart-form">
+  
+    <form accept-charset="UTF-8" action="/orders/populate" method="post">
+      <input name="utf8" type="hidden" value="✓">
+
+      <p class="prices">
+        <span class="price selling">{{ product.price_with_currency }}</span>
+      </p>
+
+      <input id="order_product_id" name="order[product_id]" type="hidden" value="{{ product.id }}">
+    
+      {% if product.has_variants? %}
+        <div id="product-variants">
+          {% for option_type in product.possible_options %}
+            <input id="order_option_types[{{ forloop.index }}]" name="order[option_types[{{ forloop.index }}]]" type="hidden" value="{{ option_type.id }}">
+            <label for="order_option_types_{{ option_type.id }}">{{ option_type.name }}</label>        
+            <select id="order_option_types_{{ option_type.id }}" name="order[option_types_{{ option_type.id }}]">
+            
+              {% for possible_value in option_type.possible_values %}
+                <option value="{{ possible_value.id }}">{{ possible_value.name }}</option>
+              {% endfor %}
+            
+            </select>
+          {% endfor %}
+        </div>
+      {% else %}  
+        <input name="order[products[0]]" id="order_products[0]" type="hidden" value="{{ product.main_variant_id }}">
+      {% endif %}
+
+        <button type="submit" class="large primary">
+          <img alt="Add-to-cart" src="/images/add-to-cart.png"></img>Comprar
+        </button>
+
+      <div class="payment_images">  
+        <span>Envíos: A convenir</span><br>
+        <span>En hasta 18 cuotas con:</span>
+        <div class="first_tier">
+          <img alt="Visa" src="/images/medios_de_pago/Visa.gif">
+          <img alt="Master" src="/images/medios_de_pago/Master.gif">
+          <img alt="Amex" src="/images/medios_de_pago/Amex.gif">
+          <img alt="Pagofacil" src="/images/medios_de_pago/PagoFacil.gif">          
+          <br>
+          <span id="read-more">Ver más</span>
+        </div>
+        <div class="second_tier hidden">
+          <img alt="Argencard" src="/images/medios_de_pago/ArgenCard.gif">
+          <img alt="Cabal" src="/images/medios_de_pago/Cabal.gif">
+          <img alt="Naranja" src="/images/medios_de_pago/Naranja.gif">
+          <img alt="Shopping" src="/images/medios_de_pago/Shopping.gif">
+          <img alt="Italcred" src="/images/medios_de_pago/Italcred.gif">
+          <img alt="Rapipago" src="/images/medios_de_pago/Rapipago.gif">
+          <img alt="Cobroexpress" src="/images/medios_de_pago/CobroExpress.gif">          
+        </div>
+        <script type="text/javascript" charset="utf-8">
+          $("#read-more").click(function () {
+            $("#read-more").hide();
+            $(".second_tier").show();
+          });
+        </script>
+      </div>
+    
+    </form>
+
+  </div>
+
+  <div id="taxon-crumbs">
+    <a href="/products" title="Volver">Volver</a>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div id="taxonomies" class="sidebar-item">
+
+  {% unless categories.size == 0 %}
+    <h5>Categorías:</h5>
+  {% endunless %}
+
+  <ul class="navigation-list">
+    <li {% if current_category == nil %} class="current root" {% endif %}>
+      <a href="/" title="Todos los productos">Todo</a>
+    </li>
+  {% for category in categories %}
+    <li {% if current_category.id == category.id %} class="current root" {% else %} class="root" {% endif %}>
+      <a href="{{ category.url }}" title="Categoría: {{ category.name }}">{{category.name}}</a>
+      <ul class="">
+        {% for child in category.children %}
+  	      <li {% if current_category.id == child.id %} class="current" {% endif %}>
+  	        <a href="{{ child.url }}" title="Categoría: {{ child.name }}">{{child.name}}</a>
+          </li>      
+        {% endfor %}
+  	  </ul>
+    </li>
+  {% endfor %}
+  </ul>
+
+</div>    

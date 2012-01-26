@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>{{ shop.main_page_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+		<!-- Ombu Shop - Theme: Minimost -->
+
+    {{ 'reset.css' | stylesheet_tag }}
+    {{ 'basic.css' | stylesheet_tag }}
+    {{ 'buttons.css' | stylesheet_tag }}
+    {{ 'advice.css' | stylesheet_tag }}
+
+    {{ 'shop.css' | asset_url | stylesheet_tag }}
+    {{ 'products.css' | asset_url | stylesheet_tag }}
+
+    {{ 'logo.css' | stylesheet_tag }}
+
+    {{ 'jquery-1.4.2.min' | script_tag }}
+    {{ 'jquery.validate.min' | script_tag }}
+    {{ 'rails' | script_tag }}
+    {{ 'application' | script_tag }}
+
+    <!-- CloudZoom: CSS and JS -->
+    <script src='/javascripts/cloud-zoom/cloud-zoom.1.0.2.min.js' type='text/javascript'></script> 
+
+    {{ 'product' | script_tag }}
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="{% if template == 'show' %} one-col {% else %} two-col {% endif %}" {% if template == 'show' %} id="product-details" {% endif %}>
+    <div id="all">
+
+      {% unless current_user == nil %}
+        <div id="admin-bar" class="top-bar">
+          <div id="login-bar">
+            <a href="/logout">Salir</a>
+          </div>
+        </div>
+      {% endunless %}
+
+      {% include 'flash' %}
+
+      <div id="page">
+        <div id="header" class="container_bg">
+          <h2 id="head_logo">
+            <a href="/" alt="Home">
+              {% if shop.has_logo? %}
+                <span>{{ shop.name }}</span>
+                <img src="{{ shop.shop_logo | logo_size: 'header' }}">
+              {% else %}
+                <div class="generated_logo">
+                  <span>{{ shop.name | capitalize }}</span>
+                </div>          
+              {% endif %}
+            </a>
+          </h2> 
+          <ul id="cart_bar">
+            <li class="cart-indicator">
+              {% if current_order.item_count == 0 %}
+                <a href="/cart" class="empty" title="Cart">Carrito: (Vacío)</a>
+              {% else %}
+                <a href="/cart" class="full" title="Cart">Carrito: {{ current_order.item_count }}</a>
+              {% endif %}
+            </li>
+          </ul>     
+          <div id="search_bar">
+            <form accept-charset="UTF-8" 
+                  action="/products" method="get">
+                <div style="margin:0;padding:0;display:inline">
+                  <input name="utf8" type="hidden" value="✓">
+                </div>
+                <label for="keywords">Buscar:</label>
+                <input id="keywords" name="keywords" type="text" value="{{ keywords }}">
+                <input type="submit" value="Buscar">
+            </form>
+          </div>  
+    			<ul id="navigation_bar"> 
+						{% for page in pages %}
+						<li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+						{% endfor %}
+					</ul>
+        </div><!-- end "header" -->
+
+        <div id="wrapper" class="container">
+
+          {{ content_for_layout }}
+
+					<div id="footer">
+            {{ content_for_footer }}
+            <div class="store_footer">
+              {{ shop.footer }}
+            </div>
+					</div> <!-- end "footer" -->
+        </div> <!-- end "wrapper" -->
+      </div> <!-- end "page" -->
+    </div> <!-- end "all" -->
+  </body>
+</html>

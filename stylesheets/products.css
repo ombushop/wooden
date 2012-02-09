@@ -297,24 +297,6 @@ ul#language-bar strong { font-weight: normal; }
   color: #ffffff;
 }
 
-.flash {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  font-size: 1.3em;
-  margin-bottom: 1em;
-  padding: 0.8em;
-}
-.flash.notice {
-  background: #23DB89;
-  color: white;
-  border: 1px solid #99aacc;
-}
-.flash.errors {
-  background: #f4b4b4 url(/images/shadow_top.png) 0px -50px repeat-x;
-  color: #000000;
-  border: 1px solid #000000;
-}
 .formError {
   font-size: 1.3em;
   margin-bottom: 1em;

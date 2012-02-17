@@ -23,15 +23,18 @@ File: index.liquid
       <ul class="product-listing">
         {% for product in products %}
           {% if product.has_stock? or shop.display_products_without_stock? %}
-            <li id="product_{{ product.id }}" class="{% cycle 'one', 'two', 'three' %}">
-              {% assign image = product.featured_image %}
-              {% if image == nil %}
-                <a href="/products/{{ product.to_param }}"><img alt="No image" src="/images/noimage/product.jpg"></img></a>                    
-              {% else %}
-                <a href="/products/{{ product.to_param }}"><img alt="{{ image.alt }}" src="{{ image.src }}"></img></a>          
-              {% endif %}
+            <li id="product_{{ product.id }}" class="{% cycle 'one', 'two', 'three', 'four' %}">
+							<div>
+	              {% assign image = product.featured_image %}
+	              {% if image == nil %}
+	                <a href="/products/{{ product.to_param }}"><img alt="No image" src="/images/noimage/product.jpg"></img></a>                    
+	              {% else %}
+	                <a href="/products/{{ product.to_param }}"><img alt="{{ image.alt }}" title="{{ image.alt }}" src="{{ image.src }}"></img></a>          
+	              {% endif %}
 
-              <a href="/products/{{ product.to_param }}" class="info">{{ product.name }} <span class="price selling">{{ product.price_with_currency }}</span></a>
+	              <h4 class="product-name"><a href="/products/{{ product.to_param }}">{{ product.name }}</a></h4>
+	              <p class="product-price"><a href="/products/{{ product.to_param }}">{{ product.price_with_currency }}</a></p>
+							</div>
             </li>
           {% endif %}
         {% endfor %}

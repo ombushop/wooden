@@ -14,13 +14,14 @@ File: products.css
 
 /* === GENERALES */
 
-html, body {
+html {
 	height: 100%;
 }
 body {
 	background-color: #34302b;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 16px;
+	overflow: auto;
 }
 a {
 	color: #39c;
@@ -34,8 +35,11 @@ a {
 #sidebar {
 
 }
+#page {
+	overflow: auto;
+}
 #content {
-
+	overflow: auto;
 }
 #destacados-container {
 	background: url(/themes/wooden/img/wooden-texture.jpg) repeat #494541;

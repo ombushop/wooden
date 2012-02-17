@@ -5,7 +5,7 @@
     <title>{{ shop.main_page_title }}</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-		<!-- Ombu Shop - Theme: Minimost -->
+		<!-- Ombu Shop - Theme: Wooden - File: theme.liquid -->
 
     {{ 'reset.css' | stylesheet_tag }}
     {{ 'basic.css' | stylesheet_tag }}
@@ -30,7 +30,7 @@
     {{ content_for_header }}
   </head>
 
-  <body class="{% if template == 'show' %} one-col {% else %} two-col {% endif %}" {% if template == 'show' %} id="product-details" {% endif %}>
+  <body class="theme-wooden {% if template == 'show' %} one-col {% else %} two-col {% endif %}" {% if template == 'show' %} id="product-details" {% endif %}>
     <div id="all">
 
       {% unless current_user == nil %}

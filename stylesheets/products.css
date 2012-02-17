@@ -12,6 +12,8 @@ File: products.css
 **************************************
 */
 
+/* === GENERALES */
+
 html, body {
 	height: 100%;
 }
@@ -21,6 +23,9 @@ body {
 a {
 	color: #39c;
 }
+
+/* === BLOQUES */
+
 #header {
 
 }
@@ -31,7 +36,7 @@ a {
 
 }
 #destacados-container {
-	background: #494541;
+	background: url(/themes/wooden/img/wooden-texture.jpg) repeat #494541;
 	padding: 20px;
 	clear: both;
 }
@@ -41,4 +46,17 @@ a {
 }
 #wrapper {
 	background: #ddd;
+}
+
+/* === HEADER */
+
+h1 {
+	font-family: 'Kaushan Script', cursive;
+	/*font-family: 'Chango', cursive;*/
+	font-size: 36px;
+	color: #ddd;
+}
+h1 a {
+	color: #ddd;
+	text-decoration: none;
 }

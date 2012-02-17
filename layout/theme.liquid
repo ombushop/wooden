@@ -6,6 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
 		<!-- Ombu Shop - Theme: Wooden - File: theme.liquid -->
+		
+		<link href='http://fonts.googleapis.com/css?family=Kaushan+Script|Chango' rel='stylesheet' type='text/css'>
 
     {{ 'reset.css' | stylesheet_tag }}
     {{ 'basic.css' | stylesheet_tag }}
@@ -45,7 +47,7 @@
 
       <div id="page" class="container container_10">
         <div id="header" class="container_bg grid_10">
-          <h2 id="head_logo">
+          <h1 id="head_logo">
             <a href="/" alt="Home">
               {% if shop.has_logo? %}
                 <span>{{ shop.name }}</span>
@@ -56,7 +58,7 @@
                 </div>          
               {% endif %}
             </a>
-          </h2> 
+          </h1> 
           <ul id="cart_bar">
             <li class="cart-indicator">
               {% if current_order.item_count == 0 %}

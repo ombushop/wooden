@@ -19,6 +19,8 @@ html, body {
 }
 body {
 	background-color: #34302b;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
 }
 a {
 	color: #39c;
@@ -39,6 +41,10 @@ a {
 	background: url(/themes/wooden/img/wooden-texture.jpg) repeat #494541;
 	padding: 20px;
 	clear: both;
+	-moz-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
+	-webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
+	z-index: 10;
 }
 #destacados-container #destacados-content {
 	background: #fff;

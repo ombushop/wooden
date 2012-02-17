@@ -43,8 +43,8 @@
 
       {% include 'flash' %}
 
-      <div id="page">
-        <div id="header" class="container_bg">
+      <div id="page" class="container container_10">
+        <div id="header" class="container_bg grid_10">
           <h2 id="head_logo">
             <a href="/" alt="Home">
               {% if shop.has_logo? %}
@@ -82,9 +82,14 @@
 						<li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
 						{% endfor %}
 					</ul>
+					<div class="clear">&nbsp;</div>
         </div><!-- end "header" -->
+        
+        <div id="destacados-container">
+        	<div id="destacados-content">productos destacados</div>
+        </div>
 
-        <div id="wrapper" class="container">
+        <div id="wrapper" class="container grid_10">
 
           {{ content_for_layout }}
 
@@ -94,6 +99,7 @@
               {{ shop.footer }}
             </div>
 					</div> <!-- end "footer" -->
+					<div class="clear">&nbsp;</div>
         </div> <!-- end "wrapper" -->
       </div> <!-- end "page" -->
     </div> <!-- end "all" -->

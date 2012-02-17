@@ -12,3 +12,33 @@ File: products.css
 **************************************
 */
 
+html, body {
+	height: 100%;
+}
+body {
+	background-color: #34302b;
+}
+a {
+	color: #39c;
+}
+#header {
+
+}
+#sidebar {
+
+}
+#content {
+
+}
+#destacados-container {
+	background: #494541;
+	padding: 20px;
+	clear: both;
+}
+#destacados-container #destacados-content {
+	background: #fff;
+	height: 150px; /* momentaneo para bocetar */
+}
+#wrapper {
+	background: #ddd;
+}

@@ -3,11 +3,11 @@ Template: Wooden
 File: index.liquid
 -->
 
-<div id="sidebar" class="clearfix">
+<div id="sidebar" class="grid_2 alpha">
   {% include 'sidebar' %}
 </div>
 
-<div id="content">
+<div id="content" class="grid_8 omega">
 
   {% if taxon %}
     {{ breadcrumbs }}

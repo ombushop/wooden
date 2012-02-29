@@ -45,9 +45,9 @@
 
       {% include 'flash' %}
 
-      <div id="page" class="container container_10">
+      <div id="page">
 	
-        <div id="header" class="container_bg grid_10">
+        <div id="header" class="container_bg container_10">
           <h1 id="head_logo">
             <a href="/" alt="Home">
               {% if shop.has_logo? %}
@@ -91,7 +91,7 @@
         	<div id="destacados-content">productos destacados</div>
         </div>
 
-        <div id="wrapper" class="container grid_10">
+        <div id="wrapper" class="container container_10">
 
           {{ content_for_layout }}
           

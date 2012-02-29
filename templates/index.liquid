@@ -3,11 +3,7 @@ Template: Wooden
 File: index.liquid
 -->
 
-<div id="sidebar" class="grid_2 alpha">
-  {% include 'sidebar' %}
-</div>
-
-<div id="content" class="grid_8 omega">
+<div id="content" class="grid_8">
 
   {% if taxon %}
     {{ breadcrumbs }}
@@ -23,7 +19,7 @@ File: index.liquid
       <ul class="product-listing">
         {% for product in products %}
           {% if product.has_stock? or shop.display_products_without_stock? %}
-            <li id="product_{{ product.id }}" class="{% cycle 'one', 'two', 'three', 'four' %}">
+            <li id="product_{{ product.id }}" class="product {% cycle 'one', 'two'%}">
 							<div>
 	              {% assign image = product.featured_image %}
 	              {% if image == nil %}
@@ -52,4 +48,9 @@ File: index.liquid
   {% endpaginate %}
   
 </div><!-- end "content" -->
+
+<div id="sidebar" class="grid_2 omega">
+  {% include 'sidebar' %}
+</div>
+
 <div class="clear">&nbsp;</div>

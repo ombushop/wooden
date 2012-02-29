@@ -49,13 +49,18 @@ a {
 	-webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
 	z-index: 10;
+	overflow: visible;
 }
 #destacados-container #destacados-content {
 	background: #fff;
 	height: 150px; /* momentaneo para bocetar */
+	width: 940px;
+	margin: 0 auto -40px auto;
 }
 #wrapper {
 	background: #ddd;
+	z-index: 8;
+	padding-top: 20px;
 }
 
 /* === HEADER */
@@ -70,3 +75,22 @@ h1 a {
 	color: #ddd;
 	text-decoration: none;
 }
+
+/* === INDEX */
+
+ul.product-listing li.product {
+	width: 344px;
+	background: #fff;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+ul.product-listing li.product.two {
+	margin-right: 0;
+}
+
+

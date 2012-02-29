@@ -55,12 +55,13 @@ a {
 	background: #fff;
 	height: 150px; /* momentaneo para bocetar */
 	width: 940px;
-	margin: 0 auto -40px auto;
+	margin: 0 auto 0 auto;
 }
 #wrapper {
 	background: #ddd;
 	z-index: 8;
 	padding-top: 20px;
+	margin-bottom: 40px;
 }
 
 /* === HEADER */
@@ -93,4 +94,9 @@ ul.product-listing li.product.two {
 	margin-right: 0;
 }
 
+/* === INDEX */
 
+#footer {
+	overflow: auto;
+	border-top: 1px solid #bbb;
+}

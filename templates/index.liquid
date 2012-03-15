@@ -4,6 +4,8 @@ File: index.liquid
 -->
 
 <div id="content" class="grid_8">
+	
+	
 
   {% if taxon %}
     {{ breadcrumbs }}
@@ -23,9 +25,9 @@ File: index.liquid
 							<div>
 	              {% assign image = product.featured_image %}
 	              {% if image == nil %}
-	                <a href="/products/{{ product.to_param }}"><img alt="No image" src="/images/noimage/product.jpg"></img></a>                    
+	                <a href="/products/{{ product.to_param }}" class="image-link-container"><img alt="No image" src="/images/noimage/product.jpg"></img></a>                    
 	              {% else %}
-	                <a href="/products/{{ product.to_param }}"><img alt="{{ image.alt }}" title="{{ image.alt }}" src="{{ image.src }}"></img></a>          
+	                <a href="/products/{{ product.to_param }}" class="image-link-container"><img alt="{{ image.alt }}" title="{{ image.alt }}" src="{{ image.src }}"></img></a>          
 	              {% endif %}
 
 	              <h4 class="product-name"><a href="/products/{{ product.to_param }}">{{ product.name }}</a></h4>
@@ -48,6 +50,17 @@ File: index.liquid
 </div><!-- end "content" -->
 
 <div id="sidebar" class="grid_2 omega">
+	<div id="search_bar">
+    <form accept-charset="UTF-8" action="/products" method="get">
+      <div style="margin:0;padding:0;display:inline">
+        <input name="utf8" type="hidden" value="✓">
+      </div>
+      <label for="keywords">Buscar:</label>
+      <input id="keywords" name="keywords" type="text" value="{{ keywords }}">
+      <input type="submit" value="Buscar">
+    </form>
+  </div>  
+  
   {% include 'sidebar' %}
 </div>
 

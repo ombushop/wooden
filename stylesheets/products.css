@@ -23,14 +23,20 @@ body {
 	font-size: 16px;
 	overflow: auto;
 }
+
 a {
 	color: #39c;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
 }
 
 /* === BLOQUES */
 
 #header {
-
+	position: relative;
+	height: 120px;
 }
 #sidebar {
 
@@ -39,23 +45,30 @@ a {
 	overflow: auto;
 }
 #content {
-	overflow: auto;
+	overflow: visible;
 }
 #destacados-container {
 	background: url(/themes/wooden/img/wooden-texture.jpg) repeat #494541;
 	padding: 20px;
 	clear: both;
-	-moz-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
-	-webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
-	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.21);
+	-webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+	-moz-box-shadow:    0 3px 4px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+	-ms-box-shadow:     0 3px 4px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+	-o-box-shadow:      0 3px 4px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+	box-shadow:         0 3px 4px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset;
 	z-index: 10;
 	overflow: visible;
 }
 #destacados-container #destacados-content {
 	background: #fff;
-	height: 150px; /* momentaneo para bocetar */
+	height: 200px; /* momentaneo para bocetar */
 	width: 940px;
 	margin: 0 auto 0 auto;
+	-webkit-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4);
+	-moz-box-shadow:    0 -1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4);
+	-ms-box-shadow:     0 -1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4);
+	-o-box-shadow:      0 -1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4);
+	box-shadow:         0 -1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 #wrapper {
 	background: #ddd;
@@ -67,14 +80,53 @@ a {
 /* === HEADER */
 
 h1 {
-	font-family: 'Kaushan Script', cursive;
 	/*font-family: 'Chango', cursive;*/
-	font-size: 36px;
+	
 	color: #ddd;
+	font: 46px 'Kaushan Script', cursive;
 }
 h1 a {
 	color: #ddd;
 	text-decoration: none;
+}
+
+#cart_bar {
+	width: 130px;
+	position:  absolute;
+	top: 0;
+	right: 0;
+	border: 1px solid #4f453a;
+	border-top: none;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 3px 3px;
+	background-color: #25221f;
+	padding: 4px;
+	font-size: 13px;
+	text-align: center;
+}
+
+ul#navigation_bar {
+	width: auto;
+	margin-right: 0;
+	margin-left: auto;
+	overflow: auto;
+	text-align: right;
+	position: absolute;
+	top: 58px;
+	right: 0;
+}
+ul#navigation_bar li {
+	display: inline;
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+ul#navigation_bar li a {
+
 }
 
 /* === INDEX */
@@ -86,15 +138,68 @@ ul.product-listing li.product {
 	margin-right: 20px;
 	margin-bottom: 20px;
 	padding: 10px;
-	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:    0 2px 3px rgba(0, 0, 0, 0.2);
+	-ms-box-shadow:     0 2px 3px rgba(0, 0, 0, 0.2);
+	-o-box-shadow:      0 2px 3px rgba(0, 0, 0, 0.2);
+	box-shadow:         0 2px 3px rgba(0, 0, 0, 0.2);
+	-webkit-transition: -webkit-box-shadow 0.2s; 
+	-moz-transition:    -moz-box-shadow 0.2s; 
+	-o-transition:      -o-box-shadow 0.2s; 
+	transition:         box-shadow 0.2s;
+}
+ul.product-listing li.product:hover {
+	-webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:    0 4px 5px rgba(0, 0, 0, 0.2);
+	-ms-box-shadow:     0 4px 5px rgba(0, 0, 0, 0.2);
+	-o-box-shadow:      0 4px 5px rgba(0, 0, 0, 0.2);
+	box-shadow:         0 4px 5px rgba(0, 0, 0, 0.2);
 }
 ul.product-listing li.product.two {
 	margin-right: 0;
 }
+ul.product-listing li.product a.image-link-container {
+	width: 100%;
+	height: 240px;
+	display: block;
+	position: relative;
+}
+ul.product-listing li.product a.image-link-container img {
+	margin: auto;
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+ul.product-listing li.product .product-name {
+	text-align: center;
+	margin-top: 15px;
+}
+ul.product-listing li.product .product-price {
+	text-align: center;
+}
 
-/* === INDEX */
+/* === LOGIN-BAR */
+#admin-bar {
+	width: 100%;
+	background-color: #403b35;
+	border-bottom: 1px solid #454039;
+	font-size: 11px;
+}
+
+#admin-bar #login-bar {
+	width: 960px;
+	margin: 0 auto;
+	text-align: right;
+	padding: 2px 0;
+}
+#admin-bar a {
+	color: #ddd;
+}
+
+/* === FOOTER */
 
 #footer {
 	overflow: auto;

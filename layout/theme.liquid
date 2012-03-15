@@ -1,6 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html>
   <head>
     <title>{{ shop.main_page_title }}</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -60,25 +59,15 @@
               {% endif %}
             </a>
           </h1> 
-          <ul id="cart_bar">
-            <li class="cart-indicator">
+          <div id="cart_bar">
+            <p class="cart-indicator">
               {% if current_order.item_count == 0 %}
                 <a href="/cart" class="empty" title="Cart">Carrito: (Vacío)</a>
               {% else %}
                 <a href="/cart" class="full" title="Cart">Carrito: {{ current_order.item_count }}</a>
               {% endif %}
-            </li>
-          </ul>     
-          <div id="search_bar">
-            <form accept-charset="UTF-8" action="/products" method="get">
-	            <div style="margin:0;padding:0;display:inline">
-	              <input name="utf8" type="hidden" value="✓">
-	            </div>
-	            <label for="keywords">Buscar:</label>
-	            <input id="keywords" name="keywords" type="text" value="{{ keywords }}">
-	            <input type="submit" value="Buscar">
-            </form>
-          </div>  
+            </p>
+          </div>     
     			<ul id="navigation_bar"> 
 						{% for page in pages %}
 						<li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
@@ -88,7 +77,7 @@
         </div><!-- end "header" -->
         
         <div id="destacados-container">
-        	<div id="destacados-content">productos destacados</div>
+        	<div id="destacados-content"><img src="/themes/wooden/img/wooden-banner.jpg" /></div>
         </div>
 
         <div id="wrapper" class="container container_10">

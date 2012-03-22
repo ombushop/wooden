@@ -37,6 +37,7 @@ a:hover {
 #header {
 	position: relative;
 	height: 120px;
+	border-top: 1px solid transparent;
 }
 #sidebar {
 
@@ -80,12 +81,11 @@ a:hover {
 /* === HEADER */
 
 h1 {
-	/*font-family: 'Chango', cursive;*/
-	
 	color: #ddd;
 	font: 46px 'Kaushan Script', cursive;
+	margin-top:  20px;
 }
-h1 a {
+h1 a, h1 a:hover {
 	color: #ddd;
 	text-decoration: none;
 }
@@ -209,9 +209,17 @@ ul.product-listing li.product a.image-link-container img {
 ul.product-listing li.product .product-name {
 	text-align: center;
 	margin-top: 15px;
+	font: 21px Georgia, Times, serif;
 }
 ul.product-listing li.product .product-price {
 	text-align: center;
+	margin-top: 6px;
+}
+ul.product-listing li.product .product-name a{
+	color: #333;
+}
+ul.product-listing li.product .product-price a {
+	color: #888;
 }
 
 /* === LOGIN-BAR */
@@ -237,4 +245,20 @@ ul.product-listing li.product .product-price {
 #footer {
 	overflow: auto;
 	border-top: 1px solid #bbb;
+}
+
+/* === SHARE */
+#content.index div.social-container {
+	border-top: 1px dashed #ccc;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+#content.index .fb-like {
+	display: block;
+	float: left;
+}
+#content.index .twitter-share-button {
+	display: block;
+	float: right;
+	margin-right: -20px;
 }

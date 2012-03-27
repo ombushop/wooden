@@ -25,9 +25,9 @@ File: index.liquid
 							<div>
 	              {% assign image = product.featured_image %}
 	              {% if image == nil %}
-	                <a href="/products/{{ product.to_param }}" class="image-link-container"><img alt="No image" src="/images/noimage/product.jpg"></img></a>                    
+	                <a href="/products/{{ product.to_param }}" class="image-link-container"><img alt="No image" src="/images/noimage/product.jpg" /></a>                    
 	              {% else %}
-	                <a href="/products/{{ product.to_param }}" class="image-link-container"><img alt="{{ image.alt }}" title="{{ image.alt }}" src="{{ image.src }}"></img></a>          
+	                <a href="/products/{{ product.to_param }}" class="image-link-container"><img alt="{{ image.alt }}" title="{{ image.alt }}" src="{{ product.featured_image | image_size: 'large' }}" width="344" /></a>          
 	              {% endif %}
 
 	              <h4 class="product-name"><a href="/products/{{ product.to_param }}">{{ product.name }}</a></h4>
@@ -39,7 +39,7 @@ File: index.liquid
 									<!-- end - facebook like button -->
 								
 									<!-- twitter tweet button -->
-									<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://hello.com">Tweet</a>
+									<a href="https://twitter.com/share" class="twitter-share-button" data-url="/products/{{ product.to_param }}">Tweet</a>
 									<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 									<!-- end - twitter tweet button -->
 								</div>

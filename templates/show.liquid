@@ -3,7 +3,7 @@ Template: Wooden
 File: show.liquid
 -->
 
-<div id="content" class="show">
+<div id="content" class="show grid_8">
   <h1>{{ product.name }}</h1>
 
   <div id="product-images">
@@ -64,11 +64,6 @@ File: show.liquid
     
       {% endif %}
     </div>
-  </div>
-
-  <div id="product-description">
-    {{ product.formatted_description }}
-    &nbsp;
   </div>
 
   <div id="cart-form">
@@ -145,8 +140,28 @@ File: show.liquid
 
   </div>
 
+  <div id="product-description">
+    {{ product.formatted_description }}
+  </div>
+
+
   <div id="taxon-crumbs">
     <a href="/products" title="Volver">Volver</a>
   </div>
 </div>
+
+<div id="sidebar" class="grid_2 omega">
+	<div id="search_bar">
+    <form accept-charset="UTF-8" action="/products" method="get">
+      <div style="margin:0;padding:0;display:inline">
+        <input name="utf8" type="hidden" value="✓">
+      </div>
+      <label for="keywords">Buscar:</label>
+      <input id="keywords" name="keywords" type="text" value="{{ keywords }}">
+      <input type="submit" value="Buscar">
+    </form>
+  </div>  
+  {% include 'sidebar' %}
+</div>
+
 <div class="clear">&nbsp;</div>

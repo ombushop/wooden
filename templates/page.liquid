@@ -3,10 +3,25 @@ Template: Wooden
 File: page.liquid
 -->
 
-<div class="static-page-wrapper">
-	<h1>{{ page.title }}</h1>
+<div class="static-page-wrapper grid_8">
+	<h2>{{ page.title }}</h2>
 	<div id="content" class="page">
 	  {{ page.content }}
 	</div>
 </div>
+
+<div id="sidebar" class="grid_2 omega">
+	<div id="search_bar">
+    <form accept-charset="UTF-8" action="/products" method="get">
+      <div style="margin:0;padding:0;display:inline">
+        <input name="utf8" type="hidden" value="✓">
+      </div>
+      <label for="keywords">Buscar:</label>
+      <input id="keywords" name="keywords" type="text" value="{{ keywords }}">
+      <input type="submit" value="Buscar">
+    </form>
+  </div>  
+  {% include 'sidebar' %}
+</div>
+
 <div class="clear">&nbsp;</div>

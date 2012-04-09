@@ -39,7 +39,9 @@
 				var $container = $('.product-listing');
 				$container.imagesLoaded(function(){
 				  $container.masonry({
-				    itemSelector : '.product'
+						isAnimated: false,
+						isResizable: false,
+				    itemSelector: '.product'
 				  });
 				});
 			});

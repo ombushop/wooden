@@ -61,31 +61,14 @@
 		
 		<div id="all">
 
-      {% unless current_user == nil %}
-        <div id="admin-bar" class="top-bar">
-          <div id="login-bar">
-            <a href="/logout">Salir</a>
-          </div>
-        </div>
-      {% endunless %}
-
       {% include 'flash' %}
 
       <div id="page">
 	
         <div id="header" class="container_bg container_10">
-          <h1 id="head_logo">
-            <a href="/" alt="Home">
-              {% if shop.has_logo? %}
-                <span>{{ shop.name }}</span>
-                <img src="{{ shop.shop_logo | logo_size: 'header' }}">
-              {% else %}
-                <div class="generated_logo">
-                  <span>{{ shop.name | capitalize }}</span>
-                </div>          
-              {% endif %}
-            </a>
-          </h1> 
+
+          {% include 'logo' %}
+
           <div id="cart_bar">
             <p class="cart-indicator">
               {% if current_order.item_count == 0 %}

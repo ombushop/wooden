@@ -12,12 +12,12 @@ Para utilizar este template:
 
   1. Ir a http://www.ombushop.com/admin
   2. Diseño > Configuración
-  3. Seleccionar 'Minimost'
+  3. Seleccionar 'Wooden'
   4. Presionar 'Guardar'
 
 ## Feedback
 
 Por cualquier consulta o problema con este theme, crear un issue o
-mandar un mail a hola@ombushop.com
+mandar un mail a opensource@ombushop.com
 
 Muchas gracias!

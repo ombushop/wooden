@@ -10,7 +10,7 @@
 				<!-- cloud-zoom -->
         <div id="wrap" style="top:0px;z-index:9999;position:relative;">
           <a href="{{ product.featured_image | image_size: 'original' }}" class="cloud-zoom" id="zoom1" rel="adjustX:30, adjustY:0, softFocus:false, position:'right', showTitle:false" style="position: relative; display: block; ">
-            <img src="{{ product.featured_image.src }}" alt="" align="left" title="{{ product.featured_image.alt | capitalize }}" style="display: block; " />
+            <img src="{{ product.featured_image.src }}" alt="{{ product.featured_image.alt }}" align="left" title="{{ product.featured_image.alt | capitalize }}" style="display: block; " />
           </a>
           <div class="mousetrap" style="background-image:url(&quot;.&quot;);z-index:999;position:absolute;left:0px;top:0px;">
           </div>
@@ -29,7 +29,7 @@
           {% for image in product.images %}
             <li {% if forloop.first %} class="selected" {% endif %}>
               <a href="{{ image.src }}">
-                <img src="{{ image | image_size: 'mini' }}" />
+                <img alt="{{ image.alt }}" src="{{ image | image_size: 'mini' }}" />
               </a>
             </li>
           {% endfor %}
@@ -48,11 +48,11 @@
                 {% for image in variant.images %}
                   <li>
                       <a href="{{ image.src }}">
-                        <img src="{{ image | image_size: 'mini' }}" />
+                        <img alt="{{ image.alt }}" src="{{ image | image_size: 'mini' }}" />
                       </a>
                   </li>
                 {% endfor %}
-              {% endif %}    
+              {% endif %}
             {% endfor %}
       
         {% endif %}

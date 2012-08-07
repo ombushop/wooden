@@ -1,6 +1,6 @@
-# Theme Norwegian Wood
+# Theme Wooden
 
-Todos los templates del theme Norwegian Wood sobre la plataforma Ombu Shop.
+Todos los templates del theme Wooden sobre la plataforma Ombu Shop.
 
 Estos templates utilizan la [API para diseñadores](http://www.ombushop.com/liquid-api/index.html)
 

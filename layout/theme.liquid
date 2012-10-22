@@ -47,6 +47,17 @@
 			});
 		</script>
 		
+		{% if product %}
+		<!-- metatags para facebook -->
+		<meta property="og:title" content="{{ shop.main_page_title }} - {{ product.name }}" />
+		<meta property="og:type" content="product" />
+		<meta property="og:url" content="{{ product.url }}" />
+		<meta property="og:image" content="{{ product.featured_image | image_size: 'original' }}" />
+		<meta property="og:site_name" content="{{ shop.main_page_title }}" />
+		<meta property="fb:app_id" content="148526658594891" />
+		<!-- fin metatags para facebook -->
+		{% endif %}    
+		
   </head>
 
   <body class="theme-wooden {% if template == 'show' %} one-col {% else %} two-col {% endif %}" {% if template == 'show' %} id="product-details" {% endif %}>

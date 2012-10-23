@@ -89,11 +89,19 @@
               {% endif %}
             </p>
           </div>     
+
+					<!-- page navigation -->
     			<ul id="navigation_bar"> 
+						{% if shop.homepage %}
+						<li><a href="/products">Productos</a></li>
+						{% endif %}
 						{% for page in pages %}
 						<li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
 						{% endfor %}
 					</ul>
+					<!-- end page navigation -->
+					
+					
 					<div class="clear">&nbsp;</div>
         </div><!-- end "header" -->
         

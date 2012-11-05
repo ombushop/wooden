@@ -94,7 +94,7 @@ h1 a, h1 a:hover {
 #cart_bar {
 	width: 130px;
 	position:  absolute;
-	top: 0;
+	top: -1px;
 	right: 0;
 	border: 1px solid #4f453a;
 	border-top: none;
@@ -293,15 +293,18 @@ div.breadcrumbs li a:hover {
 #admin-bar {
 	width: 100%;
 	background-color: #403b35;
-	border-bottom: 1px solid #454039;
+	border-bottom: 1px solid #2E2923;
 	font-size: 11px;
 }
 
 #admin-bar #login-bar {
-	width: 960px;
+	width: 978px;
 	margin: 0 auto;
 	text-align: right;
-	padding: 2px 0;
+	padding: 7px 0;
+}
+div#login-bar span.shop-name {
+	margin-top: 5px;
 }
 #admin-bar a {
 	color: #ddd;

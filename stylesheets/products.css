@@ -90,6 +90,9 @@ h1 a, h1 a:hover {
 	color: #ddd;
 	text-decoration: none;
 }
+#head_logo a span {
+	display: none;
+}
 
 #cart_bar {
 	width: 130px;
@@ -522,6 +525,16 @@ div#search_bar form label {
 	margin-right: -20px;
 	width: 107px;
 }
+#content.index div.social-container a.pin-it-button, #content.index div.social-container a {
+	display: block;
+	float: right;
+	margin-right: -20px;
+	width: 107px;
+}
+div.in-product-social-container {
+  margin: 20px 0;
+}
+
 
 /* === product SHOW */
 
@@ -547,6 +560,9 @@ div#search_bar form label {
 	padding-top: 5px;
 	font: 30px 'Graduate', Georgia, Times, serif;
 	color: #333;
+}
+#content.show #product-images {
+	float: left;
 }
 #content.show #cart-form {
 	border-top:    1px dashed #ccc;

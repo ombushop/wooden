@@ -1,9 +1,3 @@
-/* @override 
-	http://localhost:3000/assets/stylesheets/34/products.css
-	http://localhost:3000/assets/stylesheets/37/products.css
-	http://localhost:3000/assets/stylesheets/40/products.css
-	http://wooden02.ombushop.com/assets/stylesheets/381/products.css */
-
 /* 
 **************************************
 OmbuShop - Tu Tienda Online
@@ -14,7 +8,6 @@ File: products.css
 */
 
 /* === GENERALES */
-
 html {
 	height: 100%;
 }
@@ -34,7 +27,6 @@ a:hover {
 }
 
 /* === BLOQUES */
-
 #header {
 	position: relative;
 	height: 120px;
@@ -80,7 +72,6 @@ a:hover {
 }
 
 /* === HEADER */
-
 h1 {
 	color: #ddd;
 	font: 46px 'Kaushan Script', cursive;
@@ -93,7 +84,6 @@ h1 a, h1 a:hover {
 #head_logo a span {
 	display: none;
 }
-
 #cart_bar {
 	width: 130px;
 	position:  absolute;
@@ -113,6 +103,7 @@ h1 a, h1 a:hover {
 	text-align: center;
 }
 
+/* === NAVEGACION */
 ul#navigation_bar {
 	font-family: 'Open Sans Condensed', sans-serif;
 	text-transform: uppercase;
@@ -291,15 +282,12 @@ div.breadcrumbs li a:hover {
 }
 
 /* === LOGIN-BAR */
-
-
 #admin-bar {
 	width: 100%;
 	background-color: #403b35;
 	border-bottom: 1px solid #2E2923;
 	font-size: 11px;
 }
-
 #admin-bar #login-bar {
 	width: 978px;
 	margin: 0 auto;
@@ -391,7 +379,6 @@ div#search_bar form label {
 	display: block;
 	margin: -12px -12px 12px -12px;
 }
-
 #sidebar #taxonomies {
 	margin-right: -33px;
 	border: 5px solid #e8e8e8;
@@ -457,7 +444,6 @@ div#search_bar form label {
 	-ms-text-shadow:     0px 1px 0 #fff;
 	-o-text-shadow:      0px 1px 0 #fff;
 	text-shadow:         0px 1px 0 #fff;
-	
 }
 #sidebar #taxonomies ul.navigation-list li > ul > li a {
 	font-size: 14px;
@@ -501,7 +487,6 @@ div#search_bar form label {
 }
 
 /* === FOOTER */
-
 #footer {
 	overflow: auto;
 	border-top: 1px dashed #bbb;
@@ -509,7 +494,7 @@ div#search_bar form label {
 	margin-top: 20px;
 }
 
-/* === SHARE */
+/* === REDES SOCIALES */
 #content.index div.social-container {
 	border-top: 1px dashed #ccc;
 	margin-top: 10px;
@@ -535,9 +520,7 @@ div.in-product-social-container {
   margin: 20px 0;
 }
 
-
 /* === product SHOW */
-
 #content.show {
 	background: #fff;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
@@ -573,14 +556,12 @@ div.in-product-social-container {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
 #content.show #product-description {
 	clear: left;
 	margin-top: 40px;
 	margin-bottom: 20px;
 	margin-right: 260px;
 }
-
 #content.show #product-description p {
 	color: #333;
 	font: 12px "Lucida Grande", Lucida, Verdana, sans-serif;
@@ -613,7 +594,6 @@ a.back:hover {
 }
 
 /* === PAGE */
-
 div.static-page-wrapper h2 {
 	margin-top: 10px;
 	padding-top: 5px;
@@ -628,7 +608,6 @@ div.static-page-wrapper h2 {
 	-o-text-shadow:      0 2px 0 #fff;
 	text-shadow:         0 2px 0 #fff;
 }
-
 div.static-page-wrapper div#content.page {
 	border: 5px solid #e8e8e8;
 	-webkit-border-radius: 8px;
@@ -647,8 +626,7 @@ div.static-page-wrapper div#content.page p {
 	margin-bottom: 1em;
 	line-height: 1.5;
 }
-
-/* arreglar tema del boton comprar */
+/* arregla tema del boton comprar */
 #cart-form button.large.primary img {
 	margin-top: -12px;
 	margin-right: 6px;

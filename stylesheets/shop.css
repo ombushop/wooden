@@ -1,8 +1,3 @@
-/* @override 
-	http://localhost:3000/assets/stylesheets/34/shop.css
-	http://localhost:3000/assets/stylesheets/37/shop.css
-	http://localhost:3000/assets/stylesheets/40/shop.css */
-
 /* 
 **************************************
 OmbuShop - Tu Tienda Online
@@ -32,6 +27,9 @@ File: shop.css
 
   Note: IE6 works fine without this fix.
 */
+
+/* === GRID / GRILLA === */
+
 body {
   min-width: 960px;
 }
@@ -267,7 +265,6 @@ body {
   The following zoom:1 rule is specifically for IE6 + IE7.
   Move to separate stylesheet if invalid CSS is a problem.
 */
-
 .clearfix {
   zoom: 1;
 }

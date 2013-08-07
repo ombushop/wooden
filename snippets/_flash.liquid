@@ -1,12 +1,12 @@
 <div id="flash">
-  {% if flash.notice %}
-    <div class="flash notice"><%= flash.notice %>
-      {{ flash.notice }}
+  {% if notification.notice %}
+    <div class="flash notice"><%= notification.notice %>
+      {{ notification.notice }}
     </div>  
   {% endif %}
-  {% if flash.error %}
+  {% if notification.error %}
     <div class="flash errors">
-      {{ flash.error }}
+      {{ notification.error }}
     </div>
   {% endif %}
 </div>

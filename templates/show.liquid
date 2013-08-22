@@ -151,3 +151,69 @@
 </div>
 
 <div class="clear">&nbsp;</div>
+
+<script type="text/javascript">
+  window.product_variants = new Array();
+
+  // get the product variants data
+  {% if product.has_variants? %}
+    {% for variant in product.variants %}
+      {% capture first_index %}{{ forloop.index0 }}{% endcapture %}
+      window.product_variants[{{ first_index }}] = {
+        "price": "{{ variant.price }}",
+        "options_text": "{{ variant.options_text }}"
+        };
+      window.product_variants[{{ first_index }}]["option_values"] = new Array();
+      {% for option_value in variant.option_values %}
+        window.product_variants[{{ first_index }}]["option_values"][{{ forloop.index0 }}] = {
+          "id": "{{ option_value.id }}", 
+          "name": "{{ option_value.name }}" 
+          };
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+  $(document).ready(function(){
+    // first time check
+    checkSelected();
+    // on change check
+    $("#product-variants select").change(function(e){
+      checkSelected();
+    });
+  });
+
+  function checkSelected() {
+    var selected_names = new Array();
+    $("#product-variants select option:selected").each(function(){
+      selected_names.push($(this).text());
+    });
+    selected_names.sort();
+    // look in each variant
+    for(var i=0; i<window.product_variants.length; i++) {
+      var possible_names = new Array();
+      for(var j=0; j<window.product_variants[i].option_values.length; j++){
+        possible_names.push(window.product_variants[i].option_values[j].name);
+      }
+      possible_names.sort();
+      var are_identical = false;
+      for(var k=0; k<possible_names.length; k++) {
+        if(possible_names[k] == selected_names[k]){
+          are_identical = true;
+        } else {
+          are_identical = false;
+          // one's not the same, break loop
+          break;
+        }
+      }
+      if(are_identical){
+        changePrice(window.product_variants[i].price);
+      }
+    }
+  }
+
+  function changePrice(price){
+    if(price != undefined && price != "") {
+      $("span.price").html("$"+Math.floor(price));
+    }
+  }
+</script>

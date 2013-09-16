@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    {% capture meta_title %}
+      {% if product %}
+        {% assign cat = product.categories[0] %} 
+        {{ shop.main_page_title }} - {% if cat %}{{ cat.name }} - {% endif %} {{ product.name }}
+      {% else %}
+        {% if current_category %}
+            {{ shop.main_page_title }} - {{ current_category.name }}
+          {% else %}
+            {% if page %}
+              {{ shop.main_page_title }} - {{ page.title }}
+            {% else %}
+              {{ shop.main_page_title }}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endcapture %}    
+    
     <meta charset="utf-8" />
-    <title>{{ shop.main_page_title }}</title>
+    <title>{{ meta_title | strip_html }}</title>
 
     <!-- Ombu Shop - Theme: Wooden - File: theme.liquid -->
     

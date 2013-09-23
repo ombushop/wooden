@@ -645,3 +645,45 @@ p.prices {
   color: #333;
   font: 23px 'Open Sans Condensed', sans-serif;
 }
+
+/* === Pagination */
+.pagination {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.pagination a {
+  color: #34302b;
+  margin: 0 3px;
+  padding: 3px 8px;
+  text-decoration: none;
+  background: #f1f1f1;
+  border-radius: 3px;
+  -webkit-transition: 200ms all;
+  -moz-transition:    200ms all;
+  -ms-transition:     200ms all;
+  -o-transition:      200ms all;
+  transition:         200ms all;
+}
+.pagination span {
+  margin: 0 3px;
+  padding: 0 5px;
+}
+.pagination a:hover {
+  color: #000;
+}
+.pagination a:active {
+  color: #000;
+}
+.pagination a.next_page {  font-weight: 700 }
+.pagination span.disabled_page {
+  color: #929292;
+}
+.pagination span.current {
+  background-color: #34302b;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+/* End Pagination */

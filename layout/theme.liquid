@@ -20,7 +20,7 @@
     {% endcapture %}    
     
     <meta charset="utf-8" />
-    <title>{{ meta_title | strip_html }}</title>
+    <title>{{ meta_title | strip_newlines | strip_html }}</title>
 
     <!-- Ombu Shop - Theme: Wooden - File: theme.liquid -->
     

@@ -161,7 +161,8 @@
       {% capture first_index %}{{ forloop.index0 }}{% endcapture %}
       window.product_variants[{{ first_index }}] = {
         "price": "{{ variant.price }}",
-        "options_text": "{{ variant.options_text }}"
+        "options_text": "{{ variant.options_text }}",
+        "image": "{{ variant.featured_image.src }}"
         };
       window.product_variants[{{ first_index }}]["option_values"] = new Array();
       {% for option_value in variant.option_values %}
@@ -207,6 +208,7 @@
       }
       if(are_identical){
         changePrice(window.product_variants[i].price);
+        changeImage(window.product_variants[i].image);
       }
     }
   }
@@ -214,6 +216,54 @@
   function changePrice(price){
     if(price != undefined && price != "") {
       $("span.price").html("$"+Math.floor(price));
+    }
+  }
+
+  function changeImage(image_url){
+    console.log("changeImage");
+    if(image_url != undefined && image_url != "") {
+      console.log(image_url);
+      
+      var image_url_important = image_url.split("/");
+      image_url_important = image_url_important[image_url_important.length-1];
+      image_url_important = image_url_important.split("?");
+      image_url_important = image_url_important[0];
+
+      var $image_to_select;
+      
+      $('ul.thumbnails li').each(function(){
+        if(stringContains($("img", this).attr("src"), image_url_important)) {
+          $image_to_select = $("img", this);
+        }
+      });
+      
+      if($image_to_select != undefined) {
+        console.log($image_to_select);
+        
+        // prerarar la URL:
+        var image_url = $image_to_select.closest("a").attr('href').replace('mini', 'large');
+        // change product image:
+         $('#main-image img').attr('src', image_url);
+        // change BIG image:
+         $('#main-image a').attr('href', image_url.replace('large', 'original'));
+        // save new current main image:
+        $("#main-image").data('selectedThumb', $image_to_select.closest("a").attr('href'));
+        
+        // remove selected class from every li:
+        $('ul.thumbnails li').removeClass('selected');
+        // mark selected one as selected:
+        $image_to_select.closest('li').addClass('selected');
+        // reload:
+        reload_cloud_zoom();
+      }
+    }
+  }
+
+  function stringContains(baseString, contains){
+    if(baseString.indexOf(contains) != -1) {
+      return true;
+    } else {
+      return false;
     }
   }
 </script>

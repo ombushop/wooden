@@ -4,7 +4,7 @@
 
     {% capture meta_title %}
       {% if product %}
-        {% assign cat = product.categories[0] %} 
+        {% assign cat = product.categories[0] %}
         {{ shop.main_page_title }} - {% if cat %}{{ cat.name }} - {% endif %} {{ product.name }}
       {% else %}
         {% if current_category %}
@@ -17,38 +17,38 @@
           {% endif %}
         {% endif %}
       {% endif %}
-    {% endcapture %}    
-    
+    {% endcapture %}
+
     <meta charset="utf-8" />
     <title>{{ meta_title | strip_newlines | strip_html }}</title>
 
     <!-- Ombu Shop - Theme: Wooden - File: theme.liquid -->
-    
+
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script|Graduate|Open+Sans+Condensed:700' rel='stylesheet' type='text/css' />
 
-    {{ 'reset.css' | stylesheet_tag }}
-    {{ 'basic.css' | stylesheet_tag }}
-    {{ 'buttons.css' | stylesheet_tag }}
-    {{ 'advice.css' | stylesheet_tag }}
+    <link href='/themes/wooden/stylesheets/reset.css' rel='stylesheet' type='text/css' />
+    <link href='/themes/wooden/stylesheets/basic.css' rel='stylesheet' type='text/css' />
+    <link href='/themes/wooden/stylesheets/buttons.css' rel='stylesheet' type='text/css' />
+    <link href='/themes/wooden/stylesheets/advice.css' rel='stylesheet' type='text/css' />
 
     {{ 'shop.css' | asset_url | stylesheet_tag }}
     {{ 'products.css' | asset_url | stylesheet_tag }}
 
-    {{ 'logo.css' | stylesheet_tag }}
+    <link href='/themes/wooden/stylesheets/logo.css' rel='stylesheet' type='text/css' />
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-    {{ 'jquery.validate.min' | script_tag }}
-    {{ 'rails' | script_tag }}
-    {{ 'application' | script_tag }}
+    <script src='/themes/wooden/javascripts/jquery-1.4.2.min.js' type='text/javascript'></script>
+    <script src='/themes/wooden/javascripts/jquery.validate.min.js' type='text/javascript'></script>
+    <script src='/themes/wooden/javascripts/rails.js' type='text/javascript'></script>
+    <script src='/themes/wooden/javascripts/application.js' type='text/javascript'></script>
 
     <!-- CloudZoom: CSS and JS -->
-    <script src='/assets/cloud-zoom/cloud-zoom.1.0.2.min.js' type='text/javascript'></script> 
+    <script src='/themes/wooden/javascripts/cloud-zoom.1.0.2.min.js' type='text/javascript'></script>
 
     <!-- jQuery Masonry -->
-    <script src='/assets/themes/wooden/javascripts/jquery.masonry.min.js' type='text/javascript'></script> 
-    <script src='/assets/themes/wooden/javascripts/jquery.imagesloaded.min.js' type='text/javascript'></script> 
+    <script src='/themes/wooden/javascripts/jquery.masonry.min.js' type='text/javascript'></script>
+    <script src='/themes/wooden/javascripts/jquery.imagesloaded.min.js' type='text/javascript'></script>
 
-    {{ 'product' | script_tag }}
+    <script src='/themes/wooden/javascripts/product.js' type='text/javascript'></script>
 
     {{ content_for_header }}
 
@@ -64,7 +64,7 @@
         });
       });
     </script>
-    
+
     {% if product %}
     <!-- metatags para facebook -->
     <meta property="og:title" content="{{ shop.main_page_title }} - {{ product.name }}" />
@@ -74,8 +74,8 @@
     <meta property="og:site_name" content="{{ shop.main_page_title }}" />
     <meta property="fb:app_id" content="148526658594891" />
     <!-- fin metatags para facebook -->
-    {% endif %}    
-    
+    {% endif %}
+
   </head>
 
   <body class="theme-wooden {% if template == 'show' %} one-col {% else %} two-col {% endif %}" {% if template == 'show' %} id="product-details" {% endif %}>
@@ -87,9 +87,9 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    
+
     <div id="all">
-      
+
       {% if current_user %}
         {% if current_user.is_admin? %}
         <div id="admin-bar" class="top-bar">
@@ -114,7 +114,7 @@
       {% include 'flash' %}
 
       <div id="page">
-  
+
         <div id="header" class="container_bg container_10">
 
           {% include 'logo' %}
@@ -127,10 +127,10 @@
                 <a href="/cart" class="full" title="Cart">Carrito: {{ current_order.item_count }}</a>
               {% endif %}
             </p>
-          </div>     
+          </div>
 
           <!-- page navigation -->
-          <ul id="navigation_bar"> 
+          <ul id="navigation_bar">
             {% if shop.homepage %}
             <li><a href="/products">Productos</a></li>
             {% endif %}
@@ -139,11 +139,11 @@
             {% endfor %}
           </ul>
           <!-- end page navigation -->
-          
-          
+
+
           <div class="clear">&nbsp;</div>
         </div><!-- end "header" -->
-        
+
         <div id="destacados-container">
           <div id="destacados-content"><img src="http://s3.amazonaws.com/ombu_store_production/files/shops/381/wooden-banner.jpg" /></div>
         </div>
@@ -151,7 +151,7 @@
         <div id="wrapper" class="container container_10">
 
           {{ content_for_layout }}
-          
+
           <div class="clear">&nbsp;</div>
           <div id="footer" class="grid_10">
             {{ content_for_footer }}

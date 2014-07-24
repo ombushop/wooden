@@ -513,7 +513,7 @@ div#search_bar form label {
 #content.index div.social-container a.pin-it-button, #content.index div.social-container a {
 	display: block;
 	float: right;
-	margin-right: -20px;
+	margin-right: 0;
 	width: 107px;
 }
 div.in-product-social-container {
@@ -548,6 +548,10 @@ div.in-product-social-container {
 	float: left;
 	width: 450px;
 }
+#main-image {
+	overflow: auto;
+	margin-bottom: 30px;
+}
 #product-details #main-image img {
   max-width: 450px;
   height: auto;
@@ -566,10 +570,12 @@ div.in-product-social-container {
 	margin-top: 40px;
 	margin-bottom: 20px;
 	margin-right: 260px;
+	border-top: #ddd dashed 1px;
+	border-bottom: #ddd dashed 1px;
 }
 #content.show #product-description p {
 	color: #333;
-	font: 12px "Lucida Grande", Lucida, Verdana, sans-serif;
+	font: 15px "Lucida Grande", Lucida, Verdana, sans-serif;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
@@ -597,6 +603,39 @@ a.back:hover {
 	background-color: #dfdfdf;
 	color: #333;
 }
+
+/* THUMBNAILS IMAGES */
+
+/* === THUMBNAILS */
+ul.thumbnails {
+	display: block;
+	clear: both;
+	overflow: auto;
+	margin-bottom: 20px;
+}
+ul.thumbnails li {
+  border: 1px solid #ddd;
+  float: left;
+  margin-right: 5px;
+  min-height: 50px;
+  padding: 3px;
+  position: relative;
+  width: 50px;
+}
+ul.thumbnails li img {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+ul.thumbnails li:hover {  border-color: #ccc }
+ul.thumbnails li.selected {  border-color: #999 }
+#product-variants {  
+  margin-bottom: 1.5em;
+}
+
 
 /* === PAGE */
 div.static-page-wrapper h2 {
@@ -687,3 +726,10 @@ p.prices {
   padding: 3px 8px;
 }
 /* End Pagination */
+
+#flash {
+	position: fixed;
+	top: 43px;
+	left: 0;
+	right: 0;
+}

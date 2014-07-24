@@ -241,16 +241,17 @@
       
       if($image_to_select != undefined) {
         //console.log($image_to_select);
-        
+
         // prerarar la URL:
-        var image_url = $image_to_select.closest("a").attr('href').replace('mini', 'large');
+        var image_url_large = $image_to_select.closest("a").attr('href').replace('/mini/', '/large/');
         // change product image:
-         $('#main-image img').attr('src', image_url);
+        $('#main-image img').attr('src', image_url_large);
         // change BIG image:
-         $('#main-image a').attr('href', image_url.replace('large', 'original'));
+        var image_url_original = image_url_large.replace('/large/', '/original/').replace('/product/', '/original/');
+        $('#main-image a').attr('href', image_url_original);
         // save new current main image:
         $("#main-image").data('selectedThumb', $image_to_select.closest("a").attr('href'));
-        
+
         // remove selected class from every li:
         $('ul.thumbnails li').removeClass('selected');
         // mark selected one as selected:

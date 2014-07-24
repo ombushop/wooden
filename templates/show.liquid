@@ -156,6 +156,7 @@
   window.product_variants = new Array();
 
   // get the product variants data
+  // (needs to be in a liquid file)
   {% if product.has_variants? %}
     {% for variant in product.variants %}
       {% capture first_index %}{{ forloop.index0 }}{% endcapture %}
@@ -173,6 +174,7 @@
       {% endfor %}
     {% endfor %}
   {% endif %}
+  // end - get product variants data
 
   $(document).ready(function(){
     // first time check
@@ -220,9 +222,9 @@
   }
 
   function changeImage(image_url){
-    console.log("changeImage");
+    //console.log("changeImage");
     if(image_url != undefined && image_url != "") {
-      console.log(image_url);
+      //console.log(image_url);
       
       var image_url_important = image_url.split("/");
       image_url_important = image_url_important[image_url_important.length-1];
@@ -238,7 +240,7 @@
       });
       
       if($image_to_select != undefined) {
-        console.log($image_to_select);
+        //console.log($image_to_select);
         
         // prerarar la URL:
         var image_url = $image_to_select.closest("a").attr('href').replace('mini', 'large');

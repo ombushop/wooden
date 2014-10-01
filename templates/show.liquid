@@ -6,7 +6,7 @@
     <div id="main-image">
       {% if product.featured_image %}
         <!-- <img src="{{ product.featured_image | image_size: 'vertical_small' }}" title="{{ product.featured_image.alt | capitalize }}"></img> -->
-				
+
 				<!-- cloud-zoom -->
         <div id="wrap" style="top:0px;z-index:9999;position:relative;">
           <a href="{{ product.featured_image | image_size: 'original' }}" class="cloud-zoom" id="zoom1" rel="adjustX:30, adjustY:0, softFocus:false, position:'right', showTitle:false" style="position: relative; display: block; ">
@@ -54,15 +54,15 @@
                 {% endfor %}
               {% endif %}
             {% endfor %}
-      
+
         {% endif %}
-    
+
       {% endif %}
     </div>
   </div>
 
   <div id="cart-form">
-  
+
     <form accept-charset="UTF-8" action="/orders/populate" method="post">
       <input name="utf8" type="hidden" value="✓">
 
@@ -71,22 +71,22 @@
       </p>
 
       <input id="order_product_id" name="order[product_id]" type="hidden" value="{{ product.id }}">
-    
+
       {% if product.has_variants? %}
         <div id="product-variants">
           {% for option_type in product.possible_options %}
             <input id="order_option_types[{{ forloop.index }}]" name="order[option_types[{{ forloop.index }}]]" type="hidden" value="{{ option_type.id }}">
-            <label for="order_option_types_{{ option_type.id }}">{{ option_type.name }}</label>        
+            <label for="order_option_types_{{ option_type.id }}">{{ option_type.name }}</label>
             <select id="order_option_types_{{ option_type.id }}" name="order[option_types_{{ option_type.id }}]">
-            
+
               {% for possible_value in option_type.possible_values %}
                 <option value="{{ possible_value.id }}">{{ possible_value.name }}</option>
               {% endfor %}
-            
+
             </select>
           {% endfor %}
         </div>
-      {% else %}  
+      {% else %}
         <input name="order[products[0]]" id="order_products[0]" type="hidden" value="{{ product.main_variant_id }}">
       {% endif %}
 
@@ -94,7 +94,7 @@
         <img alt="Add-to-cart" src="/images/add-to-cart.png" />Comprar
       </button>
 
-      <div class="payment_images">  
+      <div class="payment_images">
         <span>Envíos: A convenir</span><br>
         <span>En hasta 18 cuotas con:</span>
 				<div class="first_tier">
@@ -121,7 +121,7 @@
           <!-- end - pinterest button -->
   			</div>
 			</div>
-    
+
     </form>
 
   </div>
@@ -146,7 +146,7 @@
       <input id="keywords" name="keywords" type="text" value="{{ keywords }}">
       <input type="submit" value="Buscar">
     </form>
-  </div>  
+  </div>
   {% include 'sidebar' %}
 </div>
 
@@ -161,112 +161,19 @@
     {% for variant in product.variants %}
       {% capture first_index %}{{ forloop.index0 }}{% endcapture %}
       window.product_variants[{{ first_index }}] = {
-        "price": "{{ variant.price }}",
+        "price": "{{ variant.price_with_currency }}",
         "options_text": "{{ variant.options_text }}",
         "image": "{{ variant.featured_image.src }}"
         };
       window.product_variants[{{ first_index }}]["option_values"] = new Array();
       {% for option_value in variant.option_values %}
         window.product_variants[{{ first_index }}]["option_values"][{{ forloop.index0 }}] = {
-          "id": "{{ option_value.id }}", 
-          "name": "{{ option_value.name }}" 
+          "id": "{{ option_value.id }}",
+          "name": "{{ option_value.name }}"
           };
       {% endfor %}
     {% endfor %}
   {% endif %}
   // end - get product variants data
 
-  $(document).ready(function(){
-    // first time check
-    checkSelected();
-    // on change check
-    $("#product-variants select").change(function(e){
-      checkSelected();
-    });
-  });
-
-  function checkSelected() {
-    var selected_names = new Array();
-    $("#product-variants select option:selected").each(function(){
-      selected_names.push($(this).text());
-    });
-    selected_names.sort();
-    // look in each variant
-    for(var i=0; i<window.product_variants.length; i++) {
-      var possible_names = new Array();
-      for(var j=0; j<window.product_variants[i].option_values.length; j++){
-        possible_names.push(window.product_variants[i].option_values[j].name);
-      }
-      possible_names.sort();
-      var are_identical = false;
-      for(var k=0; k<possible_names.length; k++) {
-        if(possible_names[k] == selected_names[k]){
-          are_identical = true;
-        } else {
-          are_identical = false;
-          // one's not the same, break loop
-          break;
-        }
-      }
-      if(are_identical){
-        changePrice(window.product_variants[i].price);
-        changeImage(window.product_variants[i].image);
-      }
-    }
-  }
-
-  function changePrice(price){
-    if(price != undefined && price != "") {
-      $("span.price").html("$"+Math.floor(price));
-    }
-  }
-
-  function changeImage(image_url){
-    //console.log("changeImage");
-    if(image_url != undefined && image_url != "") {
-      //console.log(image_url);
-      
-      var image_url_important = image_url.split("/");
-      image_url_important = image_url_important[image_url_important.length-1];
-      image_url_important = image_url_important.split("?");
-      image_url_important = image_url_important[0];
-
-      var $image_to_select;
-      
-      $('ul.thumbnails li').each(function(){
-        if(stringContains($("img", this).attr("src"), image_url_important)) {
-          $image_to_select = $("img", this);
-        }
-      });
-      
-      if($image_to_select != undefined) {
-        //console.log($image_to_select);
-
-        // prerarar la URL:
-        var image_url_large = $image_to_select.closest("a").attr('href').replace('/mini/', '/large/');
-        // change product image:
-        $('#main-image img').attr('src', image_url_large);
-        // change BIG image:
-        var image_url_original = image_url_large.replace('/large/', '/original/').replace('/product/', '/original/');
-        $('#main-image a').attr('href', image_url_original);
-        // save new current main image:
-        $("#main-image").data('selectedThumb', $image_to_select.closest("a").attr('href'));
-
-        // remove selected class from every li:
-        $('ul.thumbnails li').removeClass('selected');
-        // mark selected one as selected:
-        $image_to_select.closest('li').addClass('selected');
-        // reload:
-        reload_cloud_zoom();
-      }
-    }
-  }
-
-  function stringContains(baseString, contains){
-    if(baseString.indexOf(contains) != -1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 </script>

@@ -10,34 +10,37 @@ $(document).ready(function(){
 });
 
 function checkSelected() {
-  var selected_names = new Array();
-  $("#product-variants select option:selected").each(function(){
-    selected_names.push($(this).text());
-  });
-  selected_names.sort();
-  // look in each variant
-  for(var i=0; i<window.product_variants.length; i++) {
-    var possible_names = new Array();
-    for(var j=0; j<window.product_variants[i].option_values.length; j++){
-      possible_names.push(window.product_variants[i].option_values[j].name);
-    }
-    possible_names.sort();
-    var are_identical = false;
-    for(var k=0; k<possible_names.length; k++) {
-      if(possible_names[k] == selected_names[k]){
-        are_identical = true;
-      } else {
-        are_identical = false;
-        // one's not the same, break loop
-        break;
+  if (window.product_variants) {
+    var selected_names = new Array();
+    $("#product-variants select option:selected").each(function(){
+      selected_names.push($(this).text());
+    });
+    selected_names.sort();
+    // look in each variant
+    for(var i=0; i<window.product_variants.length; i++) {
+      var possible_names = new Array();
+      for(var j=0; j<window.product_variants[i].option_values.length; j++){
+        possible_names.push(window.product_variants[i].option_values[j].name);
       }
-    }
-    if(are_identical){
-      changePrice(window.product_variants[i].price);
-      changeImage(window.product_variants[i].image);
+      possible_names.sort();
+      var are_identical = false;
+      for(var k=0; k<possible_names.length; k++) {
+        if(possible_names[k] == selected_names[k]){
+          are_identical = true;
+        } else {
+          are_identical = false;
+          // one's not the same, break loop
+          break;
+        }
+      }
+      if(are_identical){
+        changePrice(window.product_variants[i].price);
+        changeImage(window.product_variants[i].image);
+      }
     }
   }
 }
+
 
 function changePrice(price){
   if(price != undefined && price != "") {

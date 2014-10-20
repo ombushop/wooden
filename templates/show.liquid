@@ -43,7 +43,7 @@
             <span>{{ selected_variant.options_text }}</span>
           </h4>
           <ul id="variant-thumbnails" class="thumbnails">
-            {% for variant in product.variants %}
+            {% for variant in product_variants %}
               {% if variant.available? %}
                 {% for image in variant.images %}
                   <li>
@@ -158,7 +158,7 @@
   // get the product variants data
   // (needs to be in a liquid file)
   {% if product.has_variants? %}
-    {% for variant in product.variants %}
+    {% for variant in product_variants %}
       {% capture first_index %}{{ forloop.index0 }}{% endcapture %}
       window.product_variants[{{ first_index }}] = {
         "price": "{{ variant.price_with_currency }}",

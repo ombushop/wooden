@@ -9,9 +9,9 @@ var add_image_handlers = function() {
     e.preventDefault();
   }).hover(function() {
     // hover in
-    var e = $(this).attr("href").replace("mini", "product");
+    var e = $(this).attr("href").replace("/product/", "/large/").replace("/mini/", "/large/");
     $("#main-image img").attr("src", e);
-    $("#main-image a").attr("href", e.replace("/product/", "/original/"));
+    $("#main-image a").attr("href", e.replace("/product/", "/original/").replace("/large/", "/original/") );
     change_image(this);
   }, function() {
     // hover out

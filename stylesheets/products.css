@@ -303,7 +303,6 @@ div#login-bar span.shop-name {
 
 /* === SIDEBAR (width: 172px) */
 #sidebar #search_bar {
-	margin-right: -33px;
 	border: 5px solid #e8e8e8;
 	-webkit-border-radius: 8px;
 	-moz-border-radius:    8px;
@@ -332,7 +331,7 @@ div#login-bar span.shop-name {
 	border: #ccc 1px solid;
 	display: block;
 	padding: 5px;
-	width: 158px;
+	width: 124px;
 }
 #search_bar input:last-child {
 	display: block;
@@ -380,7 +379,6 @@ div#search_bar form label {
 	margin: -12px -12px 12px -12px;
 }
 #sidebar #taxonomies {
-	margin-right: -33px;
 	border: 5px solid #e8e8e8;
 	margin-top: 20px;
 	-webkit-border-radius: 8px;

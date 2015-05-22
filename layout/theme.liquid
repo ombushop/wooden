@@ -207,11 +207,11 @@
               <h1>Navegación</h1>
               <ul class="links">
                 {% if shop.homepage %}
-    						<li><a href="/products">Productos</a></li>
-    						{% endif %}
-    						{% for page in pages %}
-      					<li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
-      					{% endfor %}
+                <li><a href="/products">Productos</a></li>
+                {% endif %}
+                {% for page in pages %}
+                <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+                {% endfor %}
               </ul>
             </div>
             <div id="follow-us">

@@ -495,18 +495,16 @@ div.in-product-social-container {
 #content.show #cart-form {
   border-top:    1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  margin-left: 480px;
-  margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
+  float: left;
+  width: 260px;
+  margin-left: 20px;
 }
 #content.show #product-description {
   clear: left;
-  margin-top: 40px;
   margin-bottom: 20px;
-  margin-right: 260px;
-  border-top: #ddd solid 1px;
   border-bottom: #ddd solid 1px;
 }
 #content.show #product-description p {
@@ -514,6 +512,9 @@ div.in-product-social-container {
   font: 15px "Karla", arial, Verdana, sans-serif;
   margin-top: 1em;
   margin-bottom: 1em;
+}
+#taxon-crumbs{
+  clear: both;
 }
 a.back {
   display: inline-block;
@@ -538,6 +539,7 @@ ul.thumbnails {
   clear: both;
   overflow: auto;
   margin-bottom: 20px;
+  padding-top: 10px;
 }
 ul.thumbnails li {
   border: 1px solid #ddd;
@@ -581,6 +583,32 @@ div.static-page-wrapper div#content.page p {
 /* arregla tema del boton comprar */
 #cart-form button.large.primary {
   margin-bottom: 20px;
+  display: block;
+  border: 0;
+  text-align: center;
+  padding: 4px 10px;
+  margin: 12px 0;
+  font-family: 'Karla', arial, sans-serif;
+  color: #666;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #000;
+  text-shadow: none;
+  font-weight: normal;
+  border-radius: 0;
+  background: none;
+  background-color: #E4DACE;
+}
+#cart-form button.large.primary:hover{
+  color: #333;
+  background-color: #CCC6BF;
+}
+#cart-form button.large.primary:active{
+  color: #CCC6BF;
+  background-color: #333;
 }
 #cart-form button.large.primary img {
   margin-top: -12px;

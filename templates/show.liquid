@@ -62,6 +62,9 @@
   </div>
 
   <div id="cart-form">
+  <div id="product-description">
+    {{ product.formatted_description }}
+  </div>
 
     <form accept-charset="UTF-8" action="/orders/populate" method="post">
       <input name="utf8" type="hidden" value="✓">
@@ -90,9 +93,7 @@
         <input name="order[products[0]]" id="order_products[0]" type="hidden" value="{{ product.main_variant_id }}">
       {% endif %}
 
-      <button type="submit" class="large primary">
-        <img alt="Add-to-cart" src="/images/add-to-cart.png" />Comprar
-      </button>
+      <button type="submit" class="large primary">Comprar</button>
 
       <div class="payment_images">
         <span>Envíos: A convenir</span><br>
@@ -126,9 +127,7 @@
 
   </div>
 
-  <div id="product-description">
-    {{ product.formatted_description }}
-  </div>
+
 
 
   <div id="taxon-crumbs">

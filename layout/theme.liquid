@@ -167,12 +167,10 @@
 
           <!-- page navigation -->
           <ul id="navigation_bar">
-            {% if shop.homepage %}
-            <li><a href="/products">Productos</a></li>
-            {% endif %}
-            {% for page in pages %}
-            <li {% if page.url contains current_path and current_path != "/" %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
-            {% endfor %}
+              {% for page in pages %}
+              <li {% if (page.url contains current_path and current_path != "/") or (current_path == "/" and page.is_homepage) %}class="current-page"{% endif %}><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+              {% endfor %}
+              <li {% if (current_path == "/products") %}class="current-page"{% endif %}><a href="/products">Productos</a></li>
           </ul>
           <!-- end page navigation -->
 
@@ -227,7 +225,7 @@
                   </ul>
               </div>
             </div>
-            <a href="#" class="ombu-tagline" title="Ombushop. Creá tu tienda Ombushop en minutos!" target="_blank"><strong>OmbuShop.</strong> Creá tu tienda Ombushop en minutos!</a>
+            <a href="#" class="ombu-tagline" title="Creá tu tienda Ombushop en minutos!" target="_blank">Creá tu tienda <strong>OmbuShop.</strong>  en minutos!</a>
             </div>
           </div> <!-- end "footer" -->
       </div> <!-- end "page" -->

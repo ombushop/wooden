@@ -116,7 +116,7 @@
         {% if current_user.is_admin? %}
         <div id="admin-bar" class="top-bar">
           <div id="login-bar">
-            <span class="shop-name"><i class="icon-shopping-cart icon-white"></i> {{ current_user.shop.name }}</span> <span class="user-email"><i class="icon-user icon-white"></i> {{ current_user.email }}</span> <div class="btn-group"><a href="/admin" title="Ir al administrador" class="btn btn-inverse" target="_blank"><i class="icon-briefcase icon-white"></i> Admin</a> <a href="{{ current_path }}" title="Recargar la tienda" class="btn active btn-inverse"><i class="icon-shopping-cart icon-white"></i> Tienda</a></div>
+            <span class="shop-name"><i class="icon-shopping-cart icon-white"></i> {{ current_user.shop.name }}</span> <span class="user-email"><i class="icon-user icon-white"></i> {{ current_user.email }}</span> <div class="btn-group"><a href="/admin/overview" title="Ir al administrador" class="btn btn-inverse" target="_blank"><i class="icon-briefcase icon-white"></i> Admin</a> <a href="{{ current_path }}" title="Recargar la tienda" class="btn active btn-inverse"><i class="icon-shopping-cart icon-white"></i> Tienda</a></div>
             <a href="/logout" class="btn btn-inverse"><i class="icon-off icon-white"></i> Salir</a>
           </div>
         </div>

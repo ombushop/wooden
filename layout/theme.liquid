@@ -155,13 +155,17 @@
           </div>
           <div id="contact-info">
             <ul>
-              <li class="facebook" title="Facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <li class="pinterest" title="Pinterest"><a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
-              <li class="twitter" title="Twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-              <li class="instagram" title="Instagram"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-              <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
-              <li class="youtube" title="Youtube"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
-              <li class="phone"><i class="fa fa-phone"></i>678-678-6789</li>
+              {% for social_network in social_networks %}
+                {% if social_network[0] != "phone" %}
+                  <li class="{{ social_network[0] }}"><a href="{{ social_network[1] }}" target="_blank"><i class="fa fa-{{ social_network[0] }}"></i></a></li>
+                {% endif %}
+              {% endfor %}
+
+              {% for social_network in social_networks %}
+                {% if social_network[0] == "phone" %}
+                  <li class="phone"><i class="fa fa-phone"></i> {{ social_network[1] }}</li>
+                {% endif %}
+              {% endfor %}
             </ul>
           </div>
 
@@ -196,7 +200,11 @@
                 <div id="contact-info">
                   <h1>Contactanos</h1>
                   <ul>
-                    <li class="phone"><i class="fa fa-phone"></i>678-678-6789</li>
+                    {% for social_network in social_networks %}
+                      {% if social_network[0] == "phone" %}
+                        <li class="phone"><i class="fa fa-phone"></i> {{ social_network[1] }}</li>
+                      {% endif %}
+                    {% endfor %}
                   </ul>
                 </div>
                 <p>{{ shop.footer }}</p>
@@ -216,13 +224,12 @@
                 <h1>Seguinos</h1>
                 <div id="contact-info">
                   <ul>
-                    <li class="facebook" title="Facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li class="pinterest" title="Pinterest"><a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
-                    <li class="twitter" title="Twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                    <li class="instagram" title="Instagram"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                    <li class="google-plus" title="Google Plus"><a href="#" target="_blank"></a></li>
-                    <li class="youtube" title="Youtube"><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                  </ul>
+                    {% for social_network in social_networks %}
+                      {% if social_network[0] != "phone" %}
+                        <li class="{{ social_network[0] }}"><a href="{{ social_network[1] }}" target="_blank"><i class="fa fa-{{ social_network[0] }}"></i></a></li>
+                      {% endif %}
+                    {% endfor %}
+                </ul>
               </div>
             </div>
             <a href="http://www.ombushop.com/tu-tienda-online?utm_source=shop&utm_medium={{shop.name}}" class="ombu-tagline" title="Creá tu tienda Ombushop en minutos!" target="_blank">Crea tu tienda <strong>OmbuShop</strong> en minutos!</a>

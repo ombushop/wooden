@@ -88,7 +88,6 @@ a:hover {
 p {
   font-size: 1.05em;
 }
-
 /* ================================== */
 /* HEADER */
 
@@ -138,7 +137,7 @@ header {
 #forkme_banner:hover {
   padding-top: 20px;
 }
-a.download_link {
+a.download_link, .demo {
   font-weight: 400;
   display: inline-block;
   margin: 5px;
@@ -159,7 +158,7 @@ a.download_link:active {
               rgba(0,0,0,.3) 0 3px 3px inset;
   background: #d3660f;
 }
-
+.demo{margin:10px 0;}
 /* ================================== */
 /* MAIN CONTENT */
 

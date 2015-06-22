@@ -18,6 +18,6 @@ Para utilizar este template:
 ## Feedback
 
 Por cualquier consulta o problema con este theme, crear un issue o
-mandar un mail a opensource@ombushop.com
+mandar un mail a hola@ombushop.com
 
 Muchas gracias!

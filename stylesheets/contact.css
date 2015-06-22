@@ -1,0 +1,35 @@
+/* === CONTACT PAGE */
+#contact-form{
+  max-width:70%;
+}
+#contact-form input, #contact-form textarea{
+  width:100%;
+  border:0;
+  background: #eee;
+  padding:10px;
+  border: 1px solid #eee;
+}
+#contact-form input:focus, #contact-form textarea:focus{
+  background: #fff;
+  border: 1px solid #E4DACE;
+}
+#contact-form input[type="submit"]{
+  text-indent: 0;
+  width: 150px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  background-color: #E4DACE;
+  padding: 5px;
+  margin-top: 10px;
+  color:#000;
+}
+#contact-form input[type="submit"]:hover{
+  opacity: 0.8;
+}
+#contact-form input[type="submit"]:focus{
+  background-color: #A6A5A5;
+}
+#email-input, #subject-input{
+  margin-bottom: 10px;
+}

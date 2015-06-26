@@ -123,7 +123,7 @@
           </div>
         </div>
         {% else %}
-          {% if current_user.is_wholesale? %}
+          {% if current_user.is_wholesale? || current_user.is_customer? %}
         <!-- if mayorista -->
         <div id="admin-bar" class="top-bar">
           <div id="login-bar">

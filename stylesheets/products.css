@@ -667,10 +667,11 @@ p.prices {
 /* End Pagination */
 
 #flash {
-  position: fixed;
-  top: 43px;
   left: 0;
   right: 0;
+  width: 960px;
+  margin: auto;
+  position: absolute;
 }
 .cloud-zoom-big{
   border: 1px solid #ddd;

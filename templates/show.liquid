@@ -159,7 +159,7 @@
     {% for variant in product_variants %}
       {% capture first_index %}{{ forloop.index0 }}{% endcapture %}
       window.product_variants[{{ first_index }}] = {
-        "price": "{{ variant.price_with_currency }}",
+        "price": "{{ variant.price }}",
         "options_text": "{{ variant.options_text }}",
         "image": "{{ variant.featured_image.src }}"
         };

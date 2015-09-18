@@ -113,24 +113,34 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <div id="all">
-
-      {% if current_user %}
-        {% if current_user.is_admin? or current_user.is_wholesale? or current_user.is_customer? %}
-          <div id="admin-bar" class="top-bar">
-            <div id="login-bar">
-              <span class="shop-name"><i class="icon-shopping-cart icon-white"></i> {{ current_user.shop.name }}</span> <span class="user-email"><i class="icon-user icon-white"></i> {{ current_user.email }} {% if current_user.is_wholesale? %}(mayorista) {% endif %}</span>
-              {% if current_user.is_admin? %}
-                <div class="btn-group">
-                  <a href="/admin/overview" title="Ir al administrador" class="btn btn-inverse" target="_blank"><i class="icon-briefcase icon-white"></i> Admin</a>
-                  <a href="{{ current_path }}" title="Recargar la tienda" class="btn active btn-inverse"><i class="icon-shopping-cart icon-white"></i> Tienda</a>
-                </div>
+    <!-- admin bar -->
+    {% if current_user %}
+      {% if current_user.is_admin? or current_user.is_wholesale? or current_user.is_customer? or current_user.has_partner? %}
+      <div id="bar-container">
+        <ul id="login-nav">
+          {% if current_user.is_admin? %}
+            <li class="btn-group">
+              <a href="/admin/overview" title="Ir al administrador" class="btn btn-inverse"><i class="icon-cog icon-white"></i> Admin {{ current_user.shop.name }}</a>
+              <a href="{{ current_path }}" title="Recargar la tienda" class="btn active btn-inverse"><i class="icon-shopping-cart icon-white"></i> Tienda {{ current_user.shop.name }}</a>
+            </li>
+          {% endif %}
+          <li tabindex="1" class="menu btn btn-inverse dropdown-toggles">
+              <i class="icon-user icon-white"></i> {{ current_user.email }} {% if current_user.is_wholesale? %}(mayorista) {% endif %}
+              <span class="caret"></span>
+            <ul class="dropdown-menu">
+              {% if current_user.has_partner? or current_user.is_wholesale? %}
+              {% else %}
+                <li><a href="/admin/account">Mi cuenta</a></li>
               {% endif %}
-              <a href="/logout" class="btn btn-inverse"><i class="icon-off icon-white"></i> Salir</a>
-            </div>
-          </div>
-        {% endif %}
+              <li><a href="/logout">Salir</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       {% endif %}
-
+    {% endif %}
+    <!-- end admin bar -->
+    
       {% include 'flash' %}
 
       <div id="page">

@@ -7,6 +7,11 @@ $(document).ready(function(){
   $("#product-variants select").change(function(e){
     checkSelected();
   });
+
+  $('ul.dropdown-menu').hide();
+  $('li.dropdown-toggles').click(function(){
+    $('ul.dropdown-menu').toggle();
+  });
 });
 
 function checkSelected() {

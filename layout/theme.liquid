@@ -113,33 +113,8 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <div id="all">
-    <!-- admin bar -->
-    {% if current_user %}
-      {% if current_user.is_admin? or current_user.is_wholesale? or current_user.is_customer? or current_user.has_partner? %}
-      <div id="bar-container">
-        <ul id="login-nav">
-          {% if current_user.is_admin? %}
-            <li class="btn-group">
-              <a href="/admin/overview" title="Ir al administrador" class="btn btn-inverse"><i class="icon-cog icon-white"></i> <strong>Admin {{ current_user.shop.name }}</strong></a>
-              <a href="{{ current_path }}" title="Recargar la tienda" class="btn active btn-inverse"><i class="icon-shopping-cart icon-white"></i> <strong>Tienda {{ current_user.shop.name }}</strong></a>
-            </li>
-          {% endif %}
-          <li tabindex="1" class="menu btn btn-inverse dropdown-toggles">
-              <i class="icon-user icon-white"></i> <strong>{{ current_user.email }} {% if current_user.is_wholesale? %}(mayorista) {% endif %}</strong>
-              <span class="caret"></span>
-            <ul class="dropdown-menu">
-              {% if current_user.has_partner? or current_user.is_wholesale? %}
-              {% else %}
-                <li><a href="/admin/account">Mi cuenta</a></li>
-              {% endif %}
-              <li><a href="/logout">Salir</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      {% endif %}
-    {% endif %}
-    <!-- end admin bar -->
+      <!-- Menú de navegación de panel de administración -->
+      {{ admin_bar }}
 
       {% include 'flash' %}
 

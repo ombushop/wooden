@@ -1,25 +1,21 @@
-<div id="taxonomies" class="sidebar-item">
+{% for category in categories %}
 
-  {% unless categories.size == 0 %}
-    <h5>Categorías</h5>
-  {% endunless %}
-
-  <ul class="navigation-list">
-    <li {% if current_category == nil %} class="current root" {% endif %}>
-      <a href="/" title="Todos los productos">Todo</a>
-    </li>
-  {% for category in categories %}
-    <li {% if current_category.id == category.id %} class="current root" {% else %} class="root" {% endif %}>
-      <a href="{{ category.url }}" title="Categoría: {{ category.name }}">{{category.name}}</a>
-      <ul class="">
-        {% for child in category.children %}
-  	      <li {% if current_category.id == child.id %} class="current" {% endif %}>
-  	        <a href="{{ child.url }}" title="Categoría: {{ child.name }}">{{child.name}}</a>
-          </li>      
-        {% endfor %}
-  	  </ul>
-    </li>
-  {% endfor %}
-  </ul>
-
-</div>    
+  {% if category.children.size != 0 %}
+    {% assign class_name = "parent_category" %}
+  {% else %}
+    {% assign class_name = "" %}
+  {% endif %}
+  
+  <li>
+    <a href="{{ category.url }}" title="Categoría: {{ category.name }}" class="{{ class_name }}">{{category.name}}</a>
+  </li>
+  
+  {% if category.children.size != 0 %}
+    {% assign categories = category.children %}
+    
+    <ul class="children_list"> 
+      {% include 'sidebar' %}
+    </ul>
+  {% endif %}
+  
+{% endfor %}

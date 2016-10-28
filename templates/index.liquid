@@ -76,7 +76,17 @@ File: index.liquid
       <input type="submit" value="Buscar">
     </form>
   </div>  
-  {% include 'sidebar' %}
+  <div id="taxonomies" class="sidebar-item">
+    {% unless categories.size == 0 %}
+      <ul class="navigation-list">
+        <li><h5>Categorías</h5>
+          <ul>
+            {% include 'sidebar' %}
+          </ul>
+        </li>
+      </ul>
+    {% endunless %}
+  </div>
 </div>
 
 <div class="clear">&nbsp;</div>

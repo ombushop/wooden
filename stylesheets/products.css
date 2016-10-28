@@ -337,7 +337,7 @@ div#search_bar form label {
   -ms-border-radius:     8px;
   -o-border-radius:      8px;
   border-radius:         8px;
-  background: #e8e8e8;
+  background-color: #f2f2f2;
 }
 #sidebar #taxonomies h5, div#search_bar form label {
   color: #000000;
@@ -364,16 +364,13 @@ div#search_bar form label {
 }
 #sidebar #taxonomies ul.navigation-list li > ul > li a {
   font-size: 14px;
-  padding-left: 26px;
 }
 #sidebar #taxonomies ul.navigation-list li a:hover {
   text-decoration: none;
-  background: #fff;
   color: #000;
 }
 #sidebar #taxonomies ul.navigation-list li a:active, #sidebar #taxonomies ul.navigation-list li.current > a {
   text-decoration: none;
-  background: #ffffff;
   color: #000;
 }
 #sidebar #taxonomies ul.navigation-list > li:first-child a {
@@ -382,6 +379,13 @@ div#search_bar form label {
 #sidebar #taxonomies ul.navigation-list > li:last-child a {
   -webkit-border-radius: 0px 0px 3px 3px;
   border-radius:         0px 0px 3px 3px;
+}
+
+.parent_category {
+  font-weight: 600 !important;
+}
+.children_list {
+  padding-left: 0.5em;
 }
 
 /* === FOOTER */

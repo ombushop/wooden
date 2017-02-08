@@ -49,7 +49,7 @@ function checkSelected() {
 
 function changePrice(price){
   if(price != undefined && price != "") {
-    $("span.price").html("$"+Math.floor(price));
+    $("span.price").html("$"+parseFloat(price).toFixed(2));
   }
 }
 

@@ -157,9 +157,14 @@
   // (needs to be in a liquid file)
   {% if product.has_variants? %}
     {% for variant in product_variants %}
+      {% if current_user.is_wholesale? == true %}
+        {% assign variant_price = variant.wholesale_price %}
+      {% else %}
+        {% assign variant_price = variant.price %}
+      {% endif %}
       {% capture first_index %}{{ forloop.index0 }}{% endcapture %}
       window.product_variants[{{ first_index }}] = {
-        "price": "{{ variant.price }}",
+        "price": "{{ variant_price }}",
         "options_text": "{{ variant.options_text }}",
         "image": "{{ variant.featured_image.src }}"
         };
